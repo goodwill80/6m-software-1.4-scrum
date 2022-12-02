@@ -14,7 +14,7 @@ class BaseSignal {
   // Constructor
   constructor(type) {
     if (this.constructor === BaseSignal) {
-      console.log(this.constructor === BaseSignal);
+      //   console.log(this.constructor === BaseSignal);
       throw new Error('This class cannot be instantiated');
     }
     this.#type = type;
@@ -37,37 +37,28 @@ class BaseSignal {
 }
 
 class TvSignal extends BaseSignal {
-  constructor(tvBrand) {
+  constructor() {
     super('tv');
-    this.tcBrand = tvBrand;
-  }
-  get getBrand() {
-    return this.tcBrand;
   }
 }
 
 class AirconSignal extends BaseSignal {
-  constructor(airConBrand) {
+  constructor() {
     super('aircon');
-    this.airConBrand = airConBrand;
-  }
-  get getBrand() {
-    return this.airConBrand;
   }
 }
 
 class DoorSignal extends BaseSignal {
-  constructor(doorBrand) {
+  constructor() {
     super('door');
-    this.doorBrand = doorBrand;
   }
 }
 
-const tv = new TvSignal('Sharp', 'tv');
+const tv = new TvSignal();
 tv.send(); // prints "Sending tv signal"
 
-const door = new DoorSignal('Hitachi', 'door');
+const door = new DoorSignal();
 door.send(); // prints "Sending door signal"
 
-const aircon = new AirconSignal('Mitsubishi', 'aircon');
+const aircon = new AirconSignal();
 aircon.send(); // prints "Sending aircon signal"
