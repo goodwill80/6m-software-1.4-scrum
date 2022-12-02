@@ -14,6 +14,7 @@ class BaseSignal {
   // Constructor
   constructor(type) {
     if (this.constructor === BaseSignal) {
+      console.log(this.constructor === BaseSignal);
       throw new Error('This class cannot be instantiated');
     }
     this.#type = type;
@@ -36,22 +37,28 @@ class BaseSignal {
 }
 
 class TvSignal extends BaseSignal {
-  constructor(tvBrand, type) {
-    super(type);
+  constructor(tvBrand) {
+    super('tv');
     this.tcBrand = tvBrand;
+  }
+  get getBrand() {
+    return this.tcBrand;
   }
 }
 
 class AirconSignal extends BaseSignal {
-  constructor(airConBrand, type) {
-    super(type);
+  constructor(airConBrand) {
+    super('aircon');
     this.airConBrand = airConBrand;
+  }
+  get getBrand() {
+    return this.airConBrand;
   }
 }
 
 class DoorSignal extends BaseSignal {
-  constructor(doorBrand, type) {
-    super(type);
+  constructor(doorBrand) {
+    super('door');
     this.doorBrand = doorBrand;
   }
 }
