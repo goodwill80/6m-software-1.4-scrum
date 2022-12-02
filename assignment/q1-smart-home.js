@@ -8,29 +8,59 @@
 
 // Task: Add code here
 
-class TvSignal extends BaseSignal {
-    constructor(){
-        // Add code here
+class BaseSignal {
+  #type;
+
+  // Constructor
+  constructor(type) {
+    if (this.constructor === BaseSignal) {
+      throw new Error('This class cannot be instantiated');
     }
+    this.#type = type;
+  }
+
+  // Getters
+  get getType() {
+    return this.#type;
+  }
+
+  // Setters
+  set setType(value) {
+    this.#type = value;
+  }
+
+  // Methods
+  send() {
+    console.log(`Sending ${this.getType} signal`);
+  }
+}
+
+class TvSignal extends BaseSignal {
+  constructor(tvBrand, type) {
+    super(type);
+    this.tcBrand = tvBrand;
+  }
 }
 
 class AirconSignal extends BaseSignal {
-    constructor(){
-        // Add code here
-    }
+  constructor(airConBrand, type) {
+    super(type);
+    this.airConBrand = airConBrand;
+  }
 }
 
 class DoorSignal extends BaseSignal {
-    constructor(){
-        // Add code here
-    }
+  constructor(doorBrand, type) {
+    super(type);
+    this.doorBrand = doorBrand;
+  }
 }
 
-const tv = new TvSignal();
+const tv = new TvSignal('Sharp', 'tv');
 tv.send(); // prints "Sending tv signal"
 
-const door = new DoorSignal();
+const door = new DoorSignal('Hitachi', 'door');
 door.send(); // prints "Sending door signal"
 
-const aircon = new AirconSignal();
+const aircon = new AirconSignal('Mitsubishi', 'aircon');
 aircon.send(); // prints "Sending aircon signal"
