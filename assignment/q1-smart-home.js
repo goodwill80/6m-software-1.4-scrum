@@ -14,7 +14,7 @@ class BaseSignal {
   // Constructor
   constructor(type) {
     if (this.constructor === BaseSignal) {
-      //   console.log(this.constructor === BaseSignal);
+      //   console.log(this.constructor === BaseSignal); // true
       throw new Error('This class cannot be instantiated');
     }
     this.#type = type;

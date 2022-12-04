@@ -82,7 +82,7 @@ class Document extends Permission {
   }
 
   process() {
-    this.check();
+    return super.check();
   }
 }
 
@@ -105,6 +105,6 @@ const doc3 = new Document(
   'Hello content'
 );
 
-console.log(doc.check());
-console.log(doc2.check());
-console.log(doc3.check());
+console.log(doc.process());
+console.log(doc2.process());
+console.log(doc3.process());
