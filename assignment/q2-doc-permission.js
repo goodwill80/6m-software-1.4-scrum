@@ -82,7 +82,7 @@ class Document extends Permission {
   }
 
   process() {
-    return super.check();
+    return super.check() ? 'Allowed' : 'Blocked';
   }
 }
 
